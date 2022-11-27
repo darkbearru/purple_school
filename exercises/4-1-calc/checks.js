@@ -1,5 +1,3 @@
-import process from "process";
-
 const checkArgument = argument => {
 	argument = Number(argument);
 	if (isNaN(argument)) return false;
@@ -15,7 +13,7 @@ const checkOperation =  operation => {
 
 
 export const checkArguments = (args) => {
-	let [a, b, operation] = args;
+	let [,, a, b, operation] = args;
 
 	if ((a = checkArgument(a)) === false) {
 		console.log('Первый аргумент должен быть числом');

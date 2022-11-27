@@ -1,5 +1,4 @@
 import process from 'process';
-import {getArguments} from "./arguments.js";
 import {checkArguments} from "./checks.js";
 
 
@@ -8,7 +7,7 @@ if (process.argv.length < 5) {
 	process.exit(1);
 }
 
-let [a, b, operation] = checkArguments(getArguments());
+let [a, b, operation] = checkArguments(process.argv);
 
 const calc = async (a, b, operation) => {
 	try {
