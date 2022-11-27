@@ -1,34 +1,14 @@
 import process from 'process';
 import {getArguments} from "./arguments.js";
-import {checkArgument,checkOperation} from "./checks.js";
+import {checkArguments} from "./checks.js";
 
-const args = getArguments();
-let [a, b, operation] = args;
 
-if (args.length < 3) {
+if (process.argv.length < 5) {
 	console.log('Необходимо передать три аргумента: число 1, число 2 и действие (+,-,*,/)');
 	process.exit(1);
 }
 
-if ((a = checkArgument(a)) === false) {
-	console.log('Первый аргумент должен быть числом');
-	process.exit(1);
-}
-
-if ((b = checkArgument(b)) === false) {
-	console.log('Второй аргумент должен быть числом');
-	process.exit(1);
-}
-
-if (!(operation = checkOperation(operation))) {
-	console.log('Неверно указано действие, допустимые значения: (add, sub, div, mul) или (+,-,*,/)');
-	process.exit(1);
-}
-
-if (b === 0 && operation === 'div') {
-	console.log('Делить на 0 нельзя');
-	process.exit(1);
-}
+let [a, b, operation] = checkArguments(getArguments());
 
 const calc = async (a, b, operation) => {
 	try {
