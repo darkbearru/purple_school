@@ -7,32 +7,34 @@ const checkArgument = argument => {
 const checkOperation =  operation => {
 	const operations = ['add', 'div', 'mul', 'sub'];
 	const operationsShortcuts = {'+' : 'add', '/' : 'div', '*' : 'mul', '-' : 'sub'};
-	if (operations.indexOf(operation) === -1 && !operationsShortcuts[operation]) return false;
-	return operation || operationsShortcuts[operation];
+	if (operations.indexOf(operation) === -1 && !operationsShortcuts[operation]) {
+		throw new Error(`Недопустимая операция «${operation}», принимаются значения: (add, sub, div, mul) или (+,-,\\*,/)`);
+	}
+	return operationsShortcuts[operation] || operation;
 }
 
 
 export const checkArguments = (args) => {
+	if (args.length < 5) {
+		throw new Error('Необходимо передать три аргумента: число 1, число 2 и действие (add, sub, div, mul) или (+,-,*,/)');
+	}
+
 	let [,, a, b, operation] = args;
 
 	if ((a = checkArgument(a)) === false) {
-		console.log('Первый аргумент должен быть числом');
-		process.exit(1);
+		throw new Error('Первый аргумент должен быть числом');
 	}
 
 	if ((b = checkArgument(b)) === false) {
-		console.log('Второй аргумент должен быть числом');
-		process.exit(1);
+		throw new Error('Второй аргумент должен быть числом');
 	}
 
 	if (!(operation = checkOperation(operation))) {
-		console.log('Неверно указано действие, допустимые значения: (add, sub, div, mul) или (+,-,*,/)');
-		process.exit(1);
+		throw new Error('Неверно указано действие, допустимые значения: (add, sub, div, mul) или (+,-,*,/)');
 	}
 
 	if (b === 0 && operation === 'div') {
-		console.log('Делить на 0 нельзя');
-		process.exit(1);
+		throw new Error('Делить на 0 нельзя');
 	}
 
 	return [a, b, operation];

@@ -1,13 +1,13 @@
 import process from 'process';
 import {checkArguments} from "./checks.js";
+let a, b, operation;
 
-
-if (process.argv.length < 5) {
-	console.log('Необходимо передать три аргумента: число 1, число 2 и действие (+,-,*,/)');
+try {
+	[a, b, operation] = checkArguments(process.argv);
+}catch(err) {
+	console.log(err.message);
 	process.exit(1);
 }
-
-let [a, b, operation] = checkArguments(process.argv);
 
 const calc = async (a, b, operation) => {
 	try {
