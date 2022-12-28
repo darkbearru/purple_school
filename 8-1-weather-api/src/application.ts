@@ -31,6 +31,5 @@ export class Application {
 
 	private useRoutes() {
 		this.app.use('/', this.controller.router);
-		// this.app.get('/');
 	}
 }

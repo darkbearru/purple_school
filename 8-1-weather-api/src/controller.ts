@@ -1,6 +1,7 @@
 import { Router, Response, Request, NextFunction } from 'express';
 import { IControllerRoute } from './controller.route.interface';
-import { WeatherResponseType, WeatherService } from './services/weather.service';
+import { WeatherService } from './services/weather.service';
+import { WeatherResponseType } from './services/types/weather.response.types';
 
 export class Controller {
 	private readonly _router: Router;
