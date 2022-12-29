@@ -57,7 +57,7 @@ export class WeatherService {
 	}
 
 	private makeAnswer(status: WeatherResponseType, data: TWeatherResponseData | null = null) {
-		return { status: status, data }
+		return { status, data }
 	}
 
 
