@@ -1,9 +1,21 @@
 {
   "name": "purple_school",
   "version": "1.0.0",
-  "type": "module",
+  "main": "main.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node ./8-1-weather-api/dist/main.js",
+    "dev": "nodemon",
+    "build": "tsc"
+  },
   "dependencies": {
-    "node-notifier": "^10.0.1",
-    "process": "^0.11.10"
+    "axios": "^1.2.1",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.15",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1"
   }
 }

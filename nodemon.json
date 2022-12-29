@@ -1,0 +1,13 @@
+{
+  "watch": [
+    "8-1-weather-api/src"
+  ],
+  "ext": "ts,json",
+  "ignore": [
+    "8-1-weather-api/src/**/*.spec.ts"
+  ],
+  "exec": "ts-node --files ./8-1-weather-api/src/main.ts",
+  "execMap": {
+    "ts": "node --require ts-node/register"
+  }
+}
