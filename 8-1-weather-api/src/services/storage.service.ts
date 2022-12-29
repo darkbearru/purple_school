@@ -1,12 +1,3 @@
-/*
-* const filePath = join(homedir(), 'weather.data.json');
-const TOKEN_DICTIONARY = {
-    token: 'token',
-    city: 'city'
-};
-
-* */
-
 import { join } from 'path';
 import { homedir } from 'os';
 import { promises } from 'fs';
